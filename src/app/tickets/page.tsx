@@ -74,7 +74,7 @@ const BookingForm = () => {
                                    required
                             />
                      </div>
-                     <label className="block text-gray-200 text-2xl py-24 w-full text-center border mb-32">Stage</label>
+                     <label className="block text-gray-200 text-2xl py-2 w-full rounded-b-3xl text-center bg-zinc-600 my-32">Stage this way</label>
                      <div className="mb-4 flex justify-center flex-col items-start md:items-center py-10 overflow-hidden overflow-x-auto">
 
                             <SeatArrangement

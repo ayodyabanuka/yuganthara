@@ -59,13 +59,13 @@ const SeatArrangement: React.FC<SeatArrangementProps> = ({
                                                  </button>
                                           ))}
                                    </div>
-                                   <div className="flex lg:hidden space-x-2 text-xs">
+                                   <div className="flex lg:hidden space-x-1 text-xs">
                                           {row.filter(seat => seat.position === 'left').map((seat) => (
                                                  <button
                                                         key={seat.id}
                                                         onClick={() => toggleSeatSelection(seat.id, seat.reservedForGuests)}
                                                         className={clsx(
-                                                               "w-5 h-5 rounded text-white",
+                                                               "w-6 h-6 rounded text-white",
                                                                selectedSeats.includes(seat.id)
                                                                       ? "bg-green-500"
                                                                       : seat.booked
@@ -102,13 +102,13 @@ const SeatArrangement: React.FC<SeatArrangementProps> = ({
                                                  </button>
                                           ))}
                                    </div>
-                                   <div className="flex lg:hidden space-x-2 text-xs">
+                                   <div className="flex lg:hidden space-x-1 text-xs">
                                           {row.filter(seat => seat.position === 'right').map((seat) => (
                                                  <button
                                                         key={seat.id}
                                                         onClick={() => toggleSeatSelection(seat.id, seat.reservedForGuests)}
                                                         className={clsx(
-                                                               "w-5 h-5 rounded text-white",
+                                                               "w-6 h-6 rounded text-white",
                                                                selectedSeats.includes(seat.id)
                                                                       ? "bg-green-500"
                                                                       : seat.booked
