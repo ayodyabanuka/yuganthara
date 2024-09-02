@@ -35,7 +35,7 @@ export default function RootLayout({
           </div>
         </div>
         <div className="bg-black py-3 text-white">
-          <div className="flex container mx-auto justify-between items-center px-10">
+          <div className="flex flex-col md:flex-row gap-6 md:gap-0 container mx-auto justify-between items-center px-10">
             <Image src={"/logo1.png"} alt={""} height={2000} width={2000} className="h-20 w-fit" />
             <div className={`flex gap-4 ${inter.className} text-xs md:text-base font-bold`}>
               <Link className="hover:bg-yellow-400 hover:text-black rounded-lg px-3 py-2" href={"/"}>Home</Link>
