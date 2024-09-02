@@ -47,23 +47,23 @@ const SponsorCarousel: FC<SponsorCarouselProps> = ({ logos }) => {
                             >
                                    {logos.map((logo, index) => (
                                           <div key={index} className="flex-shrink-0 flex gap-10 items-center">
-                                                 <Image src={logo} alt={`Sponsor ${index}`} width={1000} height={1000} className="h-16 w-full  grayscale hover:grayscale-0" />
+                                                 <Image src={logo} alt={`Sponsor ${index}`} width={1000} height={1000} className="h-16 w-fit  grayscale hover:grayscale-0" />
                                           </div>
                                    ))}
                                    {/* Duplicate the logos for seamless scrolling */}
                                    {logos.map((logo, index) => (
                                           <div key={index + logos.length} className="flex-shrink-0 flex gap-10 items-center">
-                                                 <Image src={logo} alt={`Sponsor ${index}`} width={1000} height={1000} className="h-16 w-full grayscale hover:grayscale-0" />
+                                                 <Image src={logo} alt={`Sponsor ${index}`} width={1000} height={1000} className="h-16 w-fit grayscale hover:grayscale-0" />
                                           </div>
                                    ))}
                                    {logos.map((logo, index) => (
                                           <div key={index + logos.length} className="flex-shrink-0 flex gap-10 items-center">
-                                                 <Image src={logo} alt={`Sponsor ${index}`} width={1000} height={1000} className="h-16 w-full grayscale hover:grayscale-0" />
+                                                 <Image src={logo} alt={`Sponsor ${index}`} width={1000} height={1000} className="h-16 w-fit grayscale hover:grayscale-0" />
                                           </div>
                                    ))}
                                    {logos.map((logo, index) => (
                                           <div key={index + logos.length} className="flex-shrink-0 flex gap-10 items-center">
-                                                 <Image src={logo} alt={`Sponsor ${index}`} width={1000} height={1000} className="h-16 w-full grayscale hover:grayscale-0" />
+                                                 <Image src={logo} alt={`Sponsor ${index}`} width={1000} height={1000} className="h-16 w-fit grayscale hover:grayscale-0" />
                                           </div>
                                    ))}
                             </motion.div>
