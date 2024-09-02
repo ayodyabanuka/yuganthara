@@ -10,7 +10,7 @@ type SponsorCarouselProps = {
 const SponsorCarousel: FC<SponsorCarouselProps> = ({ logos }) => {
        return (
               <div>
-                     <div className="hidden md:block overflow-hidden py-10 h-32">
+                     <div className="hidden md:block overflow-hidden py-10">
                             <motion.div
                                    className="flex space-x-40"
                                    animate={{ x: ["0%", "-100%"] }}
@@ -39,7 +39,7 @@ const SponsorCarousel: FC<SponsorCarouselProps> = ({ logos }) => {
                                    ))}
                             </motion.div>
                      </div>
-                     <div className="block md:hidden overflow-hidden py-10 h-20">
+                     <div className="block md:hidden overflow-hidden py-10">
                             <motion.div
                                    className="flex space-x-10"
                                    animate={{ x: ["0%", "-100%"] }}
