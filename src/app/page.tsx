@@ -68,10 +68,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="text-3xl md:text-5xl flex w-full justify-center py-5">
-        Sponsors
-      </div>
-      <SponsorCarousel logos={sponsors} />
+
       <div className={`flex items-center flex-col md:flex-row px-5 text-justify gap-10 place-content-center justify-items-center my-20 xl:px-32 container mx-auto ${inter.className}`}>
         <Image src={"/ictbus.png"} alt={""} height={2000} width={2000} className="hidden md:block h-fit w-[250px]" />
         <Image src={"/ictbus.png"} alt={""} height={2000} width={2000} className="block md:hidden h-fit w-[250px]" />
@@ -86,6 +83,10 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <div className="text-3xl md:text-5xl flex w-full justify-center py-5">
+        Sponsors
+      </div>
+      <SponsorCarousel logos={sponsors} />
       <div className="border-zinc-700 border border-t" />
       <div className="bg-yellow-600 text-black">
         <div className=" container mx-auto w-fit flex justify-center flex-col gap-10 items-center my-10">
