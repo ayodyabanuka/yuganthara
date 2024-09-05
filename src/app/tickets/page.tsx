@@ -66,7 +66,8 @@ const BookingForm = () => {
                                    selectedSeats,
                                    name,
                                    seatsCount: selectedSeats.length,
-                                   link: docRef.id
+                                   link: docRef.id,
+                                   status: "pending"
                             })
                      });
                      if (response.ok) {
