@@ -67,7 +67,7 @@ const BookingForm = () => {
                                    name,
                                    seatsCount: selectedSeats.length,
                                    link: docRef.id,
-                                   status: "pending"
+
                             })
                      });
                      if (response.ok) {
@@ -98,6 +98,7 @@ const BookingForm = () => {
                             phone,
                             seats: selectedSeats,
                             bookedAt: new Date(),
+                            status: "pending"
                      });
                      await handleOrderSubmission(docRef);
                      setSuccess(true);
