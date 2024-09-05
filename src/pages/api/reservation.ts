@@ -72,7 +72,7 @@ export default async function handler(
         <div>Name : D M A P MEDIWAKE</div>
         <div>Bank : Sampath Bank</div>
         <div>Branch : Moratuwa Branch</div>
-        <div>Use reference as your Name : ${name}</div>
+        <div>Use your name as reference : ${name}</div>
         </br>
     
         </div>
