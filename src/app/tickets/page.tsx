@@ -1,9 +1,10 @@
 "use client"
 import { useEffect, useState } from "react";
-import { addDoc, collection, getDocs } from "firebase/firestore";
+import { addDoc, collection, DocumentData, DocumentReference, getDocs } from "firebase/firestore";
 import SeatArrangement from "../components/seat-arrangements";
 import { seatLayout } from "@/utils/seats";
 import { db } from "@/utils/firebase";
+import { useRouter } from "next/navigation";
 
 type Seat = {
        id: string;
@@ -21,6 +22,7 @@ const BookingForm = () => {
        const [isSubmitting, setIsSubmitting] = useState(false);
        const [bookedSeats, setBookedSeats] = useState<Seat[]>([]);
        const [isLoading, setIsLoading] = useState(true); // Loading state
+       const router = useRouter();
 
        useEffect(() => {
               const fetchBookedSeats = async () => {
@@ -44,25 +46,61 @@ const BookingForm = () => {
               fetchBookedSeats();
        }, [isSubmitting]);
 
+       const handleOrderSubmission = async (docRef: DocumentReference<DocumentData, DocumentData>) => {
+              try {
+                     const response = await fetch('/api/reservation', {
+                            method: 'POST',
+                            headers: {
+                                   'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                   userEmail: email, // Replace with the user's email
+                                   phone,
+                                   selectedSeats,
+                                   name,
+                                   seatsCount: selectedSeats.length,
+                                   link: docRef.id
+                            })
+                     });
+                     if (response.ok) {
+                            console.log('Email sent successfully');
+                     } else {
+                            console.error('Failed to send email');
+                     }
+
+              } catch (error) {
+                     console.error('Error submitting order:', error);
+              }
+       };
+
        const handleSubmit = async (e: React.FormEvent) => {
               e.preventDefault();
               setIsSubmitting(true);
 
+              if (selectedSeats.length >= 5) {
+                     alert('Only 4 seats can be book for one time');
+                     setIsSubmitting(false);
+                     return;
+              }
+
               try {
-                     await addDoc(collection(db, "bookings"), {
+                     const docRef = await addDoc(collection(db, "bookings"), {
                             name,
                             email,
                             phone,
                             seats: selectedSeats,
                             bookedAt: new Date(),
                      });
+                     await handleOrderSubmission(docRef);
 
                      // Reset form and seat selection
                      setName("");
                      setEmail("");
                      setPhone("");
                      setSelectedSeats([]);
-                     alert("Booking successful!");
+
+
+
               } catch (error) {
                      console.error("Error booking seats: ", error);
                      alert("Failed to book seats. Please try again.");
