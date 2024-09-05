@@ -1,6 +1,4 @@
 "use client"
-
-
 import { useState } from "react";
 import { doc, updateDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
@@ -15,7 +13,6 @@ const inter = Inter({
 
 
 const UploadSlip = () => {
-       const router = useRouter();
        const params = useParams();
        const id = params?.id; // Reservation ID from URL
        const [file, setFile] = useState<File | null>(null);
