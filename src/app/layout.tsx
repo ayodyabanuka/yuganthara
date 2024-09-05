@@ -29,14 +29,10 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/logo1.png" type="image/x-icon" />
       </head>
       <body className={serif.className}>
-        <div className="bg-[#171717] text-white">
-          <div className="flex container mx-auto  items-center justify-end text-xs px-10 pt-4 pb-2 ">
-            <button className="hover:underline underline-offset-2">login/register</button>
-          </div>
-        </div>
         <div className="bg-black py-3 text-white">
           <div className="flex flex-col md:flex-row gap-6 md:gap-0 container mx-auto justify-between items-center px-10">
-            <Image src={"/logo1.png"} priority alt={""} height={2000} width={2000} className="h-20 w-fit" />
+            <Link href={"/"}><Image src={"/logo1.png"} priority alt={""} height={2000} width={2000} className="h-20 w-fit" /></Link>
+
             <div className={`flex gap-4 ${inter.className} text-xs md:text-base font-bold`}>
               <Link className="hover:bg-yellow-400 hover:text-black rounded-lg px-3 py-2" href={"/"}>Home</Link>
               <Link className="hover:bg-yellow-400 hover:text-black rounded-lg px-3 py-2" href={"/lineup"}>Lineup</Link>

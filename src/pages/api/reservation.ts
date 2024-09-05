@@ -34,12 +34,20 @@ export default async function handler(
     to: userEmail,
     subject: 'Your Reservation Details',
     html: `
-      <div style="font-family: Arial, sans-serif;">
-        <h1>You have booked ${seatsCount} Seats for Yuganthara</h1>
-        <p>Here are your booking details:</p>
-        <div style="margin-top: 10px;"><strong>Booking Details</strong></div>
-        <div>Name: ${name}</div>
-        <div>Email: ${userEmail}</div>
+      <div style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #FFFDF0;">
+    <div style="max-width: 600px; margin: 0 auto; padding: 20px; background-color: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <div style="text-align: center;">
+            <h1 style="color: #1d3557;">Acknowledgement of Your <span style="font-weight: bold;">Ticket Booking</span></h1>
+            <img src="https://firebasestorage.googleapis.com/v0/b/yuganthara-640bf.appspot.com/o/tickets.png?alt=media&token=ae0f1a2f-9f44-4ff2-824f-dc52e80bfac5" alt="tickets" style="width: 150px; margin-top: 10px;">
+        </div>
+        
+        <div style="background-color: #e1f0ff; padding: 20px; margin-top: 20px; border-radius: 10px; text-align: center;">
+            <h2 style="color: #1d3557;">Hello ${name}</h2>
+            <p style="color: #a3a3a3; font-size: 12px;">Here are the complete details of your reservation</p>
+        </div>
+
+        <div style="background-color: #f7f7f7; padding: 20px; margin-top: 20px; border-radius: 10px; text-align: center;">
+            <div>Email: ${userEmail}</div>
         <div>Phone Number: ${phone}</div>
         <div>Number of Seats: ${seatsCount}</div>
         <h3>Seats</h3>
@@ -47,8 +55,8 @@ export default async function handler(
           ${selectedSeats
             .map(
               (item: Seat) => `
-            <div style="margin-bottom: 10px;">
-              <strong> Seat Row: ${item.row}  -  Seat Column: ${item.column} x LKR 1000 </strong>
+            <div>
+              <strong> ${item.id} x LKR 1000 </strong>
             </div>
           `
             )
@@ -58,19 +66,38 @@ export default async function handler(
         <h1><strong>Total price for ${seatsCount} Seats: LKR ${
       seatsCount * 1000
     }</strong></h1>
-        </br>
-        <h2><strong>Bank Details:</strong></h2>
-        <div>Account Number :</div>
-        <div>Name :</div>
-        <div>Bank :</div>
-        <div>Branch :</div>
-        </br>
-        <div style= "color:red">**Please make sure to pay this within 3 days otherwise mentioned seats will be available for audience again</div>
-        <h2>Please upload your payment slips here: <a target='_blank' href='https://yuganthara.vercel.app//upload-slip/${link}'>https://yuganthara.vercel.app//upload-slip/${link}</a></h2>
-        </br>
-        <h1>Thank you</h1>
 
-      </div>
+        <h2><strong>Bank Details:</strong></h2>
+        <div>Account Number : 103 152 896 365</div>
+        <div>Name : D M A P MEDIWAKE</div>
+        <div>Bank : Sampath Bank</div>
+        <div>Branch : Moratuwa Branch</div>
+        <div>Use reference as your Name : ${name}</div>
+        </br>
+    
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+        <div style= "color:red">**Please make sure to pay this within 3 days otherwise mentioned seats will be available for reserve again</div>
+            <p style="color: #1d3557;">Please use below url to upload your payment slip</p>
+            <div>Please upload your payment slips here: <a target='_blank' href='https://yuganthara.vercel.app/upload-slip/${link}'>https://yuganthara.vercel.app/upload-slip/${link}</a></div>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="https://www.facebook.com/profile.php?id=61565379149314&mibextid=LQQJ4d" style="margin-right: 10px;"><img src="https://img.icons8.com/ios-glyphs/30/000000/facebook.png" alt="Facebook" style="width: 30px;"></a>
+            <a href="https://www.instagram.com/yuganthara_ictbus?igsh=aDFwcW1lYWpoaTFl"><img src="https://img.icons8.com/ios-glyphs/30/000000/instagram-new.png" alt="Instagram" style="width: 30px;"></a>
+        </div>
+        <h1>Thank you</h1>
+        <div style="text-align: center; margin-top: 20px; padding: 10px 0; border-top: 1px solid #ddd;">
+            <a href="https://www.yuganthara.lk" style="color: #a3a3a3; font-size: 12px; text-decoration: none; margin-left: 10px;">WEBSITE</a>
+        </div>
+
+        <div style="text-align: center; color: #a3a3a3; font-size: 10px; margin-top: 20px;">
+            All rights reserved. For further details, please check our website
+        </div>
+    </div>
+</div>
+
     `,
   };
 

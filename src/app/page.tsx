@@ -60,7 +60,7 @@ export default function Home() {
         <div className={`flex flex-col md:flex-row container mx-auto items-center w-full justify-center md:justify-between ${inter.className}`}>
           <div className="text-3xl md:text-5xl lg:text-7xl text-center md:text-left font-extrabold px-10 md:w-1/2 flex flex-col justify-center items-center md:items-start md:justify-start gap-10">
             Experience the Magic of Yuganthara 2024
-            <Link className={`text-base ${inter.className} px-5 py-3 bg-yellow-300 text-black hover:bg-yellow-400 rounded-lg w-fit`} href={""}>Get Your Tickets Now</Link>
+            <Link className={`text-base ${inter.className} px-5 py-3 bg-yellow-300 text-black hover:bg-yellow-400 rounded-lg w-fit`} href={"/tickets"}>Get Your Tickets Now</Link>
           </div>
           <div className="w-full flex justify-center items-center md:w-1/2 p-10">
             <Image src={"/tickets.png"} alt={""} height={2000} width={2000} className="hidden md:block h-fit w-[500px]" />
