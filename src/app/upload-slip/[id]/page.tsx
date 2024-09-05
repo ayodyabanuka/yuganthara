@@ -21,7 +21,7 @@ const UploadSlip = () => {
        const [file, setFile] = useState<File | null>(null);
        const [isUploading, setIsUploading] = useState(false);
        const [progress, setProgress] = useState(0);
-       const [success, setSuccess] = useState(true);
+       const [success, setSuccess] = useState(false);
 
        const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
               if (e.target.files && e.target.files[0]) {
