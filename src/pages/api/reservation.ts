@@ -80,7 +80,7 @@ export default async function handler(
         <div style="text-align: center; margin-top: 20px;">
         <div style= "color:red">**Please make sure to pay this within 3 days otherwise mentioned seats will be available for reserve again</div>
             <p style="color: #1d3557;">Please use below url to upload your payment slip</p>
-            <div>Please upload your payment slips here: <a target='_blank' href='https://yuganthara.vercel.app/upload-slip/${link}'>https://yuganthara.vercel.app/upload-slip/${link}</a></div>
+            <div>Please upload your payment slips here: <a target='_blank' href='https://yuganthara.lk/upload-slip/${link}'>https://yuganthara.vercel.app/upload-slip/${link}</a></div>
         </div>
 
         <div style="text-align: center; margin-top: 20px;">
