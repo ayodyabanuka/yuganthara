@@ -62,6 +62,7 @@ const UploadSlip = () => {
                             const reservationRef = doc(db, "bookings", id as string);
                             await updateDoc(reservationRef, {
                                    paymentSlip: downloadURL, // Add payment slip URL to Firestore
+                                   status: "processing",
                                    paymentUploadedAt: new Date(),
                             });
 

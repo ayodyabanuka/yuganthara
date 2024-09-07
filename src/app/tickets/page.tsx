@@ -91,6 +91,12 @@ const BookingForm = () => {
                      return;
               }
 
+              if (selectedSeats.length <= 0) {
+                     alert('Select your seats before submit');
+                     setIsSubmitting(false);
+                     return;
+              }
+
               try {
                      const docRef = await addDoc(collection(db, "bookings"), {
                             name,
