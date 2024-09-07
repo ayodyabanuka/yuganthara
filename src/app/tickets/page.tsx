@@ -107,7 +107,7 @@ const BookingForm = () => {
                             status: "pending"
                      });
                      await handleOrderSubmission(docRef);
-                     setSuccess(true);
+
 
 
 
@@ -116,6 +116,8 @@ const BookingForm = () => {
                      alert("Failed to book seats. Please try again.");
               } finally {
                      setIsSubmitting(false);
+                     setSuccess(true);
+
               }
        };
 
@@ -198,9 +200,37 @@ const BookingForm = () => {
                                    className="w-full py-2 px-4 bg-yellow-300 text-black font-semibold rounded hover:bg-yellow-500"
                                    disabled={isSubmitting}
                             >
-                                   {isSubmitting ? "Booking..." : "Book Now"}
+                                   {isSubmitting ? <div className="flex justify-center items-center h-32">
+                                          <svg
+                                                 className="animate-spin h-8 w-8 text-gray-700"
+                                                 xmlns="http://www.w3.org/2000/svg"
+                                                 fill="none"
+                                                 viewBox="0 0 24 24"
+                                          >
+                                                 <circle
+                                                        className="opacity-25"
+                                                        cx="12"
+                                                        cy="12"
+                                                        r="10"
+                                                        stroke="currentColor"
+                                                        strokeWidth="4"
+                                                 ></circle>
+                                                 <path
+                                                        className="opacity-75"
+                                                        fill="currentColor"
+                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                                 ></path>
+                                          </svg>
+                                   </div> : "Book Now"}
                             </button>
                      </form>
+                     {isSubmitting && <div className={`fixed flex justify-center items-center top-0 left-0 w-full h-full backdrop-blur-sm bg-[#171717]/80 ${inter.className}`}>
+                            <div className="bg-[#171717] mx-4 px-8 py-10 md:p-20 md:py-20 rounded-lg text-white flex flex-col gap-3 border text-center border-zinc-600 ">
+                                   <div className="text-4xl font-bold text-yellow-600">Please Wait</div>
+
+                                   <div className="text-xl">We are making your reservation</div>
+                            </div>
+                     </div>}
                      {success && <div className={`fixed flex justify-center items-center top-0 left-0 w-full h-full backdrop-blur-sm bg-[#171717]/80 ${inter.className}`}>
                             <div className="bg-[#171717] mx-4 px-8 py-10 md:p-20 md:py-20 rounded-lg text-white flex flex-col gap-3 border text-center border-zinc-600 ">
                                    <div className="text-4xl font-bold text-yellow-600">Seat{selectedSeats.length > 1 ? "s" : ""} reservation Successfully</div>
